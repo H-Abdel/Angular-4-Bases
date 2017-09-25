@@ -1,9 +1,6 @@
 :host { 
     display: block; 
-    width:50%; 
+    width:100%; 
     margin-top:12px; 
-}
-
-hr{ 
-    width:100px; 
+    border: solid 1px #000; 
 }
