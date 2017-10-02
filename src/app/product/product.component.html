@@ -1,4 +1,5 @@
-<div>
-  <pre> {{product | json}} </pre>
-  <button (click)="deleteProduct()"> Supprimer </button>
+<div> {{ product.designation }}  
+  <a (click)="deleteProduct()" href="#!" class="secondary-content">
+    <i class="material-icons">delete</i>
+  </a>
 </div>

@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 import { Product } from './product/product.model'
+import { ProductService } from './product/product.service'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector    : 'app-root',
+  providers   : [ProductService],
+  templateUrl : './app.component.html',
+  styleUrls   : ['./app.component.css']
 })
 export class AppComponent {
 
   newProduct = new Product()
 
-  productList: Product[] = [
-    {reference : 'T5412789', designation : 'iPhone 7', description : 'SmartPhone de chez Apple'},
-    {reference : 'E7521459', designation : 'Grand écran LG', description : 'Écran salon pour les televizjon addict de chez LG'},
-    {reference : 'T5874526', designation : 'Alcatel', description : 'Téléphone cellulaire à l\'ancienne'},
-    {reference : 'T8526971', designation : 'E7', description : 'SmartPhone de chez Samsung'} 
-  ]
+  productList: Product[]
+
+  constructor (private productService: ProductService) {
+    this.productList = this.productService.getProducts()
+  }
 
   addProduct() { 
     if (this.newProduct.reference || this.newProduct.designation || this.newProduct.description) { 

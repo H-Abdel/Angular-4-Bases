@@ -1,13 +1,67 @@
-<div>
-  <input placeholder="référence" [(ngModel)]="newProduct.reference" /> 
-  <input placeholder="designation" [(ngModel)]="newProduct.designation" />
-  <input placeholder="description" [(ngModel)]="newProduct.description" />
-  <button (click)="addProduct()">Ajouter</button>   
-</div>
-<div *ngFor="let product of productList">
-    <app-product [product]="product" (deleteTriggered)="deleteProduct($event)"> 
-    </app-product>
-    <hr />
+<nav>
+  <div class="nav-wrapper">
+    
+  </div>
+</nav>
+
+
+<div class="row">
+  <div class="col s6">
+      
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Référence" 
+                 id="reference" 
+                 type="text" 
+                 class="validate"
+                 [(ngModel)]="newProduct.reference">
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Désignation" 
+                 id="designation" 
+                 type="text" 
+                 class="validate"
+                 [(ngModel)]="newProduct.designation">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea placeholder="Decsription" 
+                    id="description" 
+                    class="materialize-textarea"
+                    [(ngModel)]="newProduct.description"></textarea>
+        </div>
+      </div>
+
+      <button class="btn waves-effect waves-light right" 
+              type="submit" 
+              name="action"
+              (click)="addProduct()"> Ajouter <i class="material-icons right">send</i>
+      </button>
+    
+  </div>
+
+  <div class="col s6">
+    <ul class="collection">
+    <div *ngFor="let product of productList">
+        <li class="collection-item">
+        <app-product [product]="product" (deleteTriggered)="deleteProduct($event)"> </app-product>
+        </li>
+    </div>
+    </ul>
+  </div>
+
+
+  <ul class="collection">
+    <li class="collection-item">ghjk</li>
+    <li class="collection-item">ghjk</li>
+    <li class="collection-item">ghjk</li>
+  </ul>
+
 </div>
 
 
